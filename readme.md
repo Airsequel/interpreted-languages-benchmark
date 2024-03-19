@@ -17,6 +17,14 @@ Benchmark for interpreted languages.
 - [Nickel]
 - [Typst]
 
+[Bun]: https://bun.sh/
+[Deno]: https://deno.com/
+[Lua]: https://www.lua.org/
+[Nickel]: https://nickel-lang.org/
+[Node.js]: https://nodejs.org/
+[Python]: https://www.python.org/
+[Typst]: https://typst.app/docs/
+
 
 ### Workarounds
 
