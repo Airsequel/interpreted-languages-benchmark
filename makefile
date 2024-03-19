@@ -1,23 +1,27 @@
 .PHONY: run
 run:
-	@nickel --version
-	@python3 --version
-	@lua -v
-	@deno --version
-	bun --version
-	node --version
 	@hyperfine --version
+
+	@python3 --version
+	@printf "Node %s\n" $$(node --version)
+	@echo $$(deno --version | awk '{printf "%s%s", (NR > 1 ? ", " : ""), $$0}')
+	@printf "Bun %s\n" $$(bun --version)
+	@lua -v
+	@nickel --version
+	@typst --version
 
 	@echo "\n===== Running Benchmark ====="
 
 	@hyperfine \
 		--shell=none \
 		--warmup 5 \
-		'nickel export bin-calculation.ncl' \
 		'python3 bin-calculation.py' \
-		'lua bin-calculation.lua' \
+		'node bin-calculation.js' \
 		'deno run bin-calculation.ts' \
 		'deno run bin-calculation.js' \
 		'bun run bin-calculation.ts' \
 		'bun run bin-calculation.js'\
-		'node bin-calculation.js'
+		'lua bin-calculation.lua' \
+		'nickel export bin-calculation.ncl' \
+		'typst query --field=text --one bin-calculation.typ "<main>"'
+

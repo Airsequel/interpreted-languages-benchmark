@@ -3,6 +3,28 @@
 Benchmark for interpreted languages.
 
 
+## Languages
+
+- JavaScript via
+  - [Node.js]
+  - [Deno]
+  - [Bun]
+- TypeScript via
+  - [Deno]
+  - [Bun]
+- [Python]
+- [Lua]
+- [Nickel]
+- [Typst]
+
+
+### Workarounds
+
+- [Typst] \
+    Can only output a JSON string.
+    Use `… | jq -r` to remove the quotes.
+
+
 ## Result
 
 ### MacBook Pro 14"
