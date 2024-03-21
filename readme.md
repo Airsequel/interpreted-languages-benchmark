@@ -109,3 +109,10 @@ Summary
     8.85 ± 1.05 times faster than deno run bin-calculation.ts
    11.39 ± 1.33 times faster than node bin-calculation.js
 ```
+
+
+## Related
+
+- [jinyus/related_post_gen] - Data Processing benchmark
+
+[jinyus/related_post_gen]: https://github.com/jinyus/related_post_gen
