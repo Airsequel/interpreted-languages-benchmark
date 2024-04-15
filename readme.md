@@ -114,5 +114,7 @@ Summary
 ## Related
 
 - [jinyus/related_post_gen] - Data Processing benchmark
+- [script-bench-rs] - Rust embedded scripting languages benchmark
 
 [jinyus/related_post_gen]: https://github.com/jinyus/related_post_gen
+[script-bench-rs]: https://github.com/khvzak/script-bench-rs
