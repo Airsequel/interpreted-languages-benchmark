@@ -1,0 +1,10 @@
+#! /usr/bin/env ocaml -I +unix
+
+#load "unix.cma";;
+
+let today = Unix.localtime (Unix.time ());;
+let day = today.Unix.tm_mday;;
+let month = today.Unix.tm_mon + 1;;
+let year = today.Unix.tm_year + 1900;;
+
+Printf.printf "%04d-%02d-%02d\n" year month day;;

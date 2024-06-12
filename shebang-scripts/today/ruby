@@ -1,0 +1,5 @@
+#! /usr/bin/ruby
+
+require 'date'
+
+puts DateTime.now.to_date.to_s

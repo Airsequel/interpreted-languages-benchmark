@@ -1,3 +1,8 @@
+.PHONY: help
+help: makefile
+	@tail -n +4 makefile | grep ".PHONY"
+
+
 .PHONY: run
 run:
 	@hyperfine --version
@@ -24,4 +29,38 @@ run:
 		'lua bin-calculation.lua' \
 		'nickel export bin-calculation.ncl' \
 		'typst query --field=text --one bin-calculation.typ "<main>"'
+
+
+.PHONY: run-shebangs
+run-shebangs:
+	cd shebang-scripts/today && \
+	hyperfine \
+		--shell none \
+		--warmup 10 \
+		'./bash' \
+		'./bun' \
+		'./dart' \
+		'./dash' \
+		'./elixir' \
+		'./elvish' \
+		'./fish' \
+		'./fsharp.fsx' \
+		'./guile' \
+		'./haskell' \
+		'./julia' \
+		'./ksh' \
+		'./lua' \
+		'./luajit' \
+		'./nushell' \
+		'./ocaml' \
+		'./osh' \
+		'./perl' \
+		'./php' \
+		'./python' \
+		'./racket' \
+		'./roc.roc' \
+		'./ruby' \
+		'./scala' \
+		'./swift' \
+		'./v.vsh'
 

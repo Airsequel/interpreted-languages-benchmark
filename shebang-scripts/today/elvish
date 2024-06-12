@@ -1,0 +1,3 @@
+#! /opt/homebrew/bin/elvish
+
+date -u "+%Y-%m-%d"

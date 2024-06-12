@@ -1,0 +1,3 @@
+#! /opt/homebrew/bin/scala-cli shebang -S 3
+
+println(java.time.LocalDate.now)

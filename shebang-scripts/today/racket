@@ -1,0 +1,16 @@
+#! /opt/homebrew/bin/racket
+#lang racket/base
+
+(define (pad-zero n)
+  (if (< n 10)
+      (string-append "0" (number->string n))
+      (number->string n)))
+
+(define (get-current-date-iso)
+  (let* ((current-date (seconds->date (current-seconds)))
+         (year (date-year current-date))
+         (month (date-month current-date))
+         (day (date-day current-date)))
+    (format "~a-~a-~a" year (pad-zero month) (pad-zero day))))
+
+(displayln (get-current-date-iso))

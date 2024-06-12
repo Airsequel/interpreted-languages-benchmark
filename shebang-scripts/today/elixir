@@ -1,0 +1,6 @@
+#! /usr/bin/env elixir
+
+# TODO: Directly calling /opt/homebrew/bin/elixir does not work
+
+date = Date.utc_today()
+IO.puts(date)

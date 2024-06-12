@@ -1,0 +1,3 @@
+#! /opt/homebrew/bin/nu
+
+date now | format date "%Y-%m-%d"

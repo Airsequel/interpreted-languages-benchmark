@@ -1,0 +1,87 @@
+name: Run Benchmarks
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macOS-14-arm64
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Update Homebrew registry
+        uses: brew update
+
+      - name: Set up Dart
+        run: |
+          brew tap dart-lang/dart
+          brew install dart
+
+      - name: Set up Dotnet
+        run: brew install dotnet
+
+      - name: Set up Elixir
+        run: brew install elixir
+
+      - name: Set up Elvish
+        run: brew install elvish
+
+      - name: Set up Fish
+        run: brew install fish
+
+      - name: Set up Godot for GDScript
+        run: brew install godot
+
+      - name: Set up Guile
+        run: brew install guile
+
+      - name: Set up Julia
+        run: brew install julia
+
+      - name: Set up Lua
+        run: brew install lua
+
+      - name: Set up Luajit
+        run: brew install luajit
+
+      - name: Set up Ngs
+        run: brew install ngs
+
+      # - name: Set up Nim
+      #   run: brew install nim
+
+      - name: Set up Nushell
+        run: brew install nushell
+
+      - name: Set up Osh
+        run: brew install osh
+
+      - name: Set up Php
+        run: brew install php
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+
+      - name: Set up Racket
+        run: brew install minimal-racket
+
+      - name: Set up Scala-cli
+        run: brew install scala-cli
+
+      - name: Set up V
+        run: brew install v
+
+      - name: Install Make
+        run: |
+          sudo apt update
+          sudo apt install make
+
+      - name: Run main benchmark
+        run: make run
+
+      - name: Run shebang-scripts benchmark
+        run: make run-shebangs

@@ -1,0 +1,3 @@
+#! /opt/homebrew/bin/osh
+
+date -u "+%Y-%m-%d"

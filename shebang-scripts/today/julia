@@ -1,0 +1,5 @@
+#! /opt/homebrew/bin/julia
+
+using Dates
+
+println(today())

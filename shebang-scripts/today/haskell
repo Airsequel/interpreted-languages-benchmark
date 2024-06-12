@@ -1,0 +1,9 @@
+#! /Users/adrian/.ghcup/bin/stack
+-- stack script --package time --snapshot lts-22.22
+
+import Data.Time
+
+main :: IO ()
+main = do
+  today <- getCurrentTime
+  print $ utctDay today

@@ -1,0 +1,7 @@
+#! /opt/homebrew/bin/guile
+!#
+
+(use-modules (srfi srfi-19))
+
+(display (date->string (current-date) "~Y-~m-~e"))
+(newline)

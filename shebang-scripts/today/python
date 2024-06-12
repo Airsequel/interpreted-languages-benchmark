@@ -1,0 +1,5 @@
+#! /Users/adrian/.rye/shims/python
+
+import datetime
+
+print(datetime.datetime.now().isoformat()[:10])

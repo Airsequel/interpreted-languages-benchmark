@@ -1,0 +1,9 @@
+#! /usr/bin/swift
+
+import Foundation
+
+let formatter = DateFormatter()
+formatter.dateFormat = "yyyy-MM-dd"
+let today = formatter.string(from: Date())
+
+print(today)

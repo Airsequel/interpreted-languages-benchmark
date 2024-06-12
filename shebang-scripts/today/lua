@@ -1,0 +1,3 @@
+#! /opt/homebrew/bin/lua
+
+print(os.date("%Y-%m-%dT%H:%M:%S"))
