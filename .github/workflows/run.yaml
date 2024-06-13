@@ -75,6 +75,9 @@ jobs:
       - name: Set up V
         run: brew install v
 
+      - name: Install Hyperfine
+        run: brew install hyperfine
+
       - name: Run main benchmark
         run: make run
 
