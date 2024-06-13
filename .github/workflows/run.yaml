@@ -57,6 +57,12 @@ jobs:
       - name: Set up Ngs
         run: brew install ngs
 
+      - name: Set up Nickel
+        run: brew install nickel
+
+      - name: Set up Nix
+        uses: cachix/install-nix-action@v27
+
       # - name: Set up Nim
       #   run: brew install nim
 
@@ -77,6 +83,9 @@ jobs:
 
       - name: Set up Scala
         run: brew install scala
+
+      - name: Set up Typst
+        run: brew install typst
 
       - name: Set up V
         run: brew install v
