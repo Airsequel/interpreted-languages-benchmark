@@ -88,7 +88,9 @@ jobs:
         uses: hasnep/setup-roc@main
 
       - name: Set up Scala
-        run: brew install scala
+        run: |
+          brew install scala
+          brew install Virtuslab/scala-cli/scala-cli
 
       - name: Set up Stack
         uses: haskell-actions/setup@v2
