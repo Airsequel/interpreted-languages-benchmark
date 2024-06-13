@@ -75,11 +75,6 @@ jobs:
       - name: Set up V
         run: brew install v
 
-      - name: Install Make
-        run: |
-          sudo apt update
-          sudo apt install make
-
       - name: Run main benchmark
         run: make run
 
