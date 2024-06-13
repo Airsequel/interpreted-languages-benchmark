@@ -16,6 +16,9 @@ jobs:
       - name: Update Homebrew registry
         run: brew update
 
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v1
+
       - name: Set up Dart
         run: |
           brew tap dart-lang/dart
@@ -23,6 +26,9 @@ jobs:
 
       - name: Set up Dotnet
         run: brew install dotnet
+
+      - name: Set up Deno
+        run: brew install deno
 
       - name: Set up Elixir
         run: brew install elixir
