@@ -15,12 +15,14 @@ Benchmark for interpreted languages.
 - [Python]
 - [Lua]
 - [Nickel]
+- [Nix Language]
 - [Typst]
 
 [Bun]: https://bun.sh/
 [Deno]: https://deno.com/
 [Lua]: https://www.lua.org/
 [Nickel]: https://nickel-lang.org/
+[Nix Language]: https://nixos.org/manual/nix/stable/language/
 [Node.js]: https://nodejs.org/
 [Python]: https://www.python.org/
 [Typst]: https://typst.app/docs/
