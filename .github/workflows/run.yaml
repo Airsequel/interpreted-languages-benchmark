@@ -69,8 +69,8 @@ jobs:
       - name: Set up Racket
         run: brew install minimal-racket
 
-      - name: Set up Scala-cli
-        run: brew install scala-cli
+      - name: Set up Scala
+        run: brew install scala
 
       - name: Set up V
         run: brew install v
