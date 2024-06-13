@@ -1,4 +1,5 @@
-#! /Users/adrian/.rye/shims/python
+#! /usr/bin/env python
+# TODO: Absolute path to bun needs to be the same in CI and local
 
 import datetime
 
