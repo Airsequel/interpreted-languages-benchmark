@@ -1,0 +1,11 @@
+#! /usr/bin/env rust-script
+//! ```cargo
+//! [dependencies]
+//! chrono = "0.4.38"
+//! ```
+
+use chrono::Utc;
+
+fn main() {
+    println!("{}", Utc::now().format("%Y-%m-%d"));
+}

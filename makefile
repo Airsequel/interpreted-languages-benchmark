@@ -60,6 +60,7 @@ print-versions:
 	@printf '"racket": "%s",\n' "$$(racket --version)"
 	@printf '"roc": "%s",\n' "$$(roc --version | head -n1)"
 	@printf '"ruby": "%s",\n' "$$(ruby --version)"
+	@printf '"rust": "%s",\n' "$$(rustc --version), $$(rust-script --version)"
 	@printf '"scala": "%s",\n' "$$(scala-cli --version | tr '\n' ',')"
 	@printf '"stack": "%s",\n' "$$(stack --version)"
 	@printf '"swift": "%s",\n' \
@@ -77,31 +78,9 @@ run-shebangs:
 		--shell none \
 		--warmup 10 \
 		--export-json result.json \
-		'./bash' \
-		'./bun' \
-		'./dart' \
-		'./dash' \
-		'./elixir' \
-		'./elvish' \
-		'./fish' \
-		'./fsharp.fsx' \
-		'./guile' \
-		'./haskell' \
-		'./julia' \
-		'./ksh' \
-		'./lua' \
-		'./luajit' \
-		'./nushell' \
-		'./ocaml' \
-		'./osh' \
-		'./perl' \
-		'./php' \
-		'./python' \
-		'./racket' \
-		'./roc.roc' \
-		'./ruby' \
-		'./scala' \
-		'./swift' \
-		'./v.vsh'
+		$$(cat _all_.txt)
 
-	# TODO: Save result.json
+
+shebang-scripts/today/chart.svg:
+	bun run ./shebang-scripts/generate-chart.ts
+

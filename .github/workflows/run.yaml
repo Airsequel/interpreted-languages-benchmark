@@ -45,6 +45,9 @@ jobs:
       - name: Set up Guile
         run: brew install guile
 
+      - name: Set up Janet
+        run: brew install janet
+
       - name: Set up Julia
         run: brew install julia
 

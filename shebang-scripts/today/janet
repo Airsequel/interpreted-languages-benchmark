@@ -1,0 +1,16 @@
+#! /opt/homebrew/bin/janet
+
+(defn to-double-digit-string [digit]
+  (string/slice (string "0" digit) -3))
+
+(defn get-date-time-string [time]
+  (let [date (os/date time)
+        year (get date :year)
+        month (to-double-digit-string (get date :month))
+        day (to-double-digit-string (get date :month-day))
+        hours (to-double-digit-string (get date :hours))
+        minutes (to-double-digit-string (get date :minutes))
+        seconds (to-double-digit-string (get date :seconds))]
+    (string year "-" month "-" day "T" hours ":" minutes ":" seconds "Z")))
+
+(print (get-date-time-string (os/time)))
