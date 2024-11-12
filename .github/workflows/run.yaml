@@ -85,7 +85,7 @@ jobs:
         uses: actions/setup-python@v5
 
       - name: Set up Racket
-        run: brew install minimal-racket
+        run: brew install --cask racket
 
       - name: Set up Roc
         uses: hasnep/setup-roc@main
