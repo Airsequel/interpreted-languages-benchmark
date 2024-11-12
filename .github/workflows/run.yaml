@@ -87,6 +87,9 @@ jobs:
       - name: Set up Racket
         run: brew install --cask racket
 
+      - name: Set up Rust-Script
+        run: cargo install rust-script
+
       - name: Set up Roc
         uses: hasnep/setup-roc@main
 

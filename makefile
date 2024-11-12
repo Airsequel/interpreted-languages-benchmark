@@ -77,7 +77,6 @@ run-shebangs:
 	&& hyperfine \
 		--shell none \
 		--warmup 10 \
-		--ignore-failure \
 		--export-json result.json \
 		$$(cat _all_.txt)
 
