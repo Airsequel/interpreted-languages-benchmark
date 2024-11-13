@@ -21,7 +21,7 @@
 ./python
 ./racket
 ./rust-script
-./roc.roc
+# ./roc.roc - TODO: Fix roc on GitHub Actions
 ./ruby
 ./scala
 ./swift

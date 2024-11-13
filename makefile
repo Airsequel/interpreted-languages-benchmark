@@ -78,7 +78,7 @@ run-shebangs:
 		--shell none \
 		--warmup 10 \
 		--export-json result.json \
-		$$(cat _all_.txt)
+		$$(grep -v '^#' _all_.txt)
 
 
 shebang-scripts/today/chart.svg:
