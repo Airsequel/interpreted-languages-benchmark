@@ -4,7 +4,7 @@ Benchmark for interpreted languages.
 
 ![Barchart for relative execution speed](shebang-scripts/today/chart.svg)
 
-The values for Rust, V, and Haskell are not really representative
+The values for Rust, V, Swift, D and Haskell are not really representative
 as they are compiled on the first run
 and Haskell unfortunately does not even cache the compiled binary.
 
@@ -13,6 +13,7 @@ and Haskell unfortunately does not even cache the compiled binary.
 
 - [Bash]
 - [Bun]
+- [D]
 - [Dart]
 - [Dash]
 - [Elixir]
@@ -41,6 +42,7 @@ and Haskell unfortunately does not even cache the compiled binary.
   - [Bun]
 - [Python]
 - [Python]
+- [R]
 - [Racket]
 - [Roc.roc]
 - [Ruby]
@@ -51,6 +53,7 @@ and Haskell unfortunately does not even cache the compiled binary.
 
 [Bash]: https://www.gnu.org/software/bash/
 [Bun]: https://bun.sh/
+[D]: https://dlang.org
 [Dart]: https://dart.dev/
 [Dash]: https://wiki.archlinux.org/title/Dash
 [Deno]: https://deno.com/
@@ -72,6 +75,7 @@ and Haskell unfortunately does not even cache the compiled binary.
 [Perl]: https://www.perl.org/
 [PHP]: https://www.php.net/
 [Python]: https://www.python.org/
+[R]: https://www.r-project.org
 [Racket]: https://racket-lang.org/
 [Roc.roc]: https://roc-lang.org/
 [Ruby]: https://www.ruby-lang.org/
