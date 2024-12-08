@@ -25,6 +25,7 @@ print-versions:
 	@echo '{'
 	@printf '"hyperfine": "%s",\n' "$$(hyperfine --version)"
 	@printf '"bash": "%s",\n' "$$(bash --version | head -n1)"
+	@printf '"d": "%s",\n' "$$(rdmd --version | head -n1)"
 	@printf '"dart": "%s",\n' "$$(dart --version | tr -d '"')"
 	@printf '"dash": "%s",\n' \
 			"$$(brew info --json dash \
@@ -57,6 +58,7 @@ print-versions:
 	@printf '"perl": "%s",\n' "$$(perl --version | head -n2 | tail -n1)"
 	@printf '"php": "%s",\n' "$$(php --version | head -n1)"
 	@printf '"python": "%s",\n' "$$(python3 --version)"
+	@printf '"r": "%s",\n' "$$(Rscript --version | head -n1)"
 	@printf '"racket": "%s",\n' "$$(racket --version)"
 	@printf '"roc": "%s",\n' "$$(roc --version | head -n1)"
 	@printf '"ruby": "%s",\n' "$$(ruby --version)"

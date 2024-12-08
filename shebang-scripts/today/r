@@ -1,0 +1,3 @@
+#!/usr/bin/env Rscript
+
+cat(format(unlist(Sys.Date()), "%Y-%m-%d"), "\n")

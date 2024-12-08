@@ -1,5 +1,6 @@
 ./bash
 ./bun
+./d.d
 ./dart
 ./dash
 ./elixir
@@ -19,6 +20,7 @@
 ./perl
 ./php
 ./python
+./r
 ./racket
 ./rust-script
 # ./roc.roc - TODO: Fix roc on GitHub Actions
