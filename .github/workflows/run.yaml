@@ -19,6 +19,9 @@ jobs:
       - name: Set up Bun
         uses: oven-sh/setup-bun@v1
 
+      - name: Set up D
+        run: brew install ldc
+
       - name: Set up Dart
         run: |
           brew tap dart-lang/dart
@@ -83,6 +86,9 @@ jobs:
 
       - name: Set up Python
         uses: actions/setup-python@v5
+
+      - name: Set up R
+        run: brew install r
 
       - name: Set up Racket
         run: brew install --cask racket
