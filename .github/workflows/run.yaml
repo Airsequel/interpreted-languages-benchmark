@@ -20,7 +20,7 @@ jobs:
         uses: oven-sh/setup-bun@v1
 
       - name: Set up D
-        run: brew install ldc
+        run: brew install ldc dtools
 
       - name: Set up Dart
         run: |
