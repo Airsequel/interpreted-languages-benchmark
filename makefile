@@ -45,6 +45,7 @@ print-versions:
 	@printf '"fish": "%s",\n' "$$(fish --version)"
 	@printf '"godot": "%s",\n' "$$(godot -s --version)"
 	@printf '"guile": "%s",\n' "$$(guile --version | head -n1)"
+	@printf '"java": "%s",\n' "$$(java --version)"
 	@printf '"julia": "%s",\n' "$$(julia --version)"
 	@printf '"lua": "%s",\n' "$$(lua -v)"
 	@printf '"luajit": "%s",\n' "$$(luajit -v)"

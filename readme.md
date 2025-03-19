@@ -22,6 +22,7 @@ and Haskell unfortunately does not even cache the compiled binary.
 - [Fish]
 - [Guile]
 - [Haskell]
+- [Java]
 - JavaScript via
   - [Node.js]
   - [Deno]
@@ -63,6 +64,7 @@ and Haskell unfortunately does not even cache the compiled binary.
 [Fish]: https://fishshell.com/
 [Guile]: https://www.gnu.org/software/guile/
 [Haskell]: https://www.haskell.org/
+[Java]: https://www.java.com/
 [Julia]: https://julialang.org/
 [Ksh]: https://www.kornshell.com/
 [Lua]: https://www.lua.org/
