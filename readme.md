@@ -151,11 +151,15 @@ lua bucket-calc/main.lua ran
 
 ## Related
 
+- [ffi-overhead] - Comparing the C FFI overhead of various programming languages
+- [gradbench] - Benchmarks for differentiable programming across languages and domains
 - [jinyus/related_post_gen] - Data Processing benchmark
 - [plb2] - A programming language benchmark
 - [Programming-Language-Benchmarks][PLB]
 - [script-bench-rs] - Rust embedded scripting languages benchmark
 
+[ffi-overhead]: https://github.com/dyu/ffi-overhead
+[gradbench]: https://github.com/gradbench/gradbench
 [jinyus/related_post_gen]: https://github.com/jinyus/related_post_gen
 [PLB]: https://github.com/hanabi1224/Programming-Language-Benchmarks
 [plb2]: https://github.com/attractivechaos/plb2
