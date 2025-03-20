@@ -129,3 +129,14 @@ jobs:
 
       - name: Run shebang-scripts benchmark
         run: make run-shebangs
+        
+      - name: Generate chart
+        run: make -B shebang-scripts/today/chart.svg
+        
+      - name: Commit and push updated chart
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add shebang-scripts/today/chart.svg
+          git commit -m "Update benchmark chart [skip ci]" || echo "No changes to commit"
+          git push
