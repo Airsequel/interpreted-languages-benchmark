@@ -13,9 +13,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Update Homebrew registry
-        run: brew update
-
       - name: Set up Bun
         uses: oven-sh/setup-bun@v2
 
