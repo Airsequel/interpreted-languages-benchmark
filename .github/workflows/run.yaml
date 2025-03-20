@@ -17,7 +17,7 @@ jobs:
         run: brew update
 
       - name: Set up Bun
-        uses: oven-sh/setup-bun@v1
+        uses: oven-sh/setup-bun@v2
 
       - name: Set up D
         run: brew install ldc dtools
@@ -28,7 +28,7 @@ jobs:
           brew install dart
 
       - name: Set up Dotnet
-        run: brew install dotnet
+        run: brew install --formula dotnet
 
       - name: Set up Deno
         run: brew install deno
@@ -55,7 +55,7 @@ jobs:
         run: brew install java
 
       - name: Set up Julia
-        run: brew install julia
+        run: brew install --formula julia
 
       - name: Set up Lua
         run: brew install lua
@@ -70,7 +70,7 @@ jobs:
         run: brew install nickel
 
       - name: Set up Nix
-        uses: cachix/install-nix-action@v27
+        uses: cachix/install-nix-action@v31
 
       # - name: Set up Nim
       #   run: brew install nim
@@ -89,9 +89,12 @@ jobs:
 
       - name: Set up Python
         uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          check-latest: true
 
       - name: Set up R
-        run: brew install r
+        run: brew install --formula r
 
       - name: Set up Racket
         run: brew install --cask racket
@@ -107,7 +110,7 @@ jobs:
           brew install scala
           brew install Virtuslab/scala-cli/scala-cli
 
-      - name: Set up Stack
+      - name: Set up Haskell's Stack
         uses: haskell-actions/setup@v2
         with:
           enable-stack: true
@@ -124,15 +127,15 @@ jobs:
       - name: Print versions
         run: make print-versions
 
-      - name: Run main benchmark
-        run: make run
+      - name: Run bucket-calc benchmark
+        run: make run-bucket-calc
 
       - name: Run shebang-scripts benchmark
         run: make run-shebangs
-        
+
       - name: Generate chart
         run: make -B shebang-scripts/today/chart.svg
-        
+
       - name: Commit and push updated chart
         run: |
           git config --local user.email "action@github.com"

@@ -96,57 +96,9 @@ and Haskell unfortunately does not even cache the compiled binary.
 
 ## Result
 
-Check out the workflow runs for the latest benchmark results.
-
-
-### GitHub's MacOS 14 Runner
-
-#### Bucket Calc
-
-```txt
-lua bucket-calc/main.lua ran
-  2.96 ± 3.97 times faster than nickel export bucket-calc/main.ncl
-  3.05 ± 3.98 times faster than bun run bucket-calc/main.js
-  3.09 ± 4.07 times faster than bun run bucket-calc/main.ts
-  4.71 ± 5.77 times faster than python3 bucket-calc/main.py
-  4.76 ± 5.83 times faster than deno run bucket-calc/main.ts
-  4.80 ± 5.91 times faster than deno run bucket-calc/main.js
-  8.56 ± 10.56 times faster than node bucket-calc/main.js
-  24.21 ± 29.52 times faster than
-                typst query --field=text --one bucket-calc/main.typ
-```
-
-
-#### Shebang Scripts
-
-```txt
-./luajit ran
-  1.06 ± 0.22 times faster than ./lua
-  1.61 ± 0.27 times faster than ./bash
-  1.62 ± 0.29 times faster than ./dash
-  2.12 ± 0.49 times faster than ./ksh
-  2.66 ± 0.55 times faster than ./osh
-  3.77 ± 0.63 times faster than ./elvish
-  3.91 ± 0.67 times faster than ./v.vsh
-  4.92 ± 0.82 times faster than ./fish
-  6.16 ± 1.02 times faster than ./bun
-  9.65 ± 1.72 times faster than ./guile
-  13.94 ± 2.29 times faster than ./python
-  14.20 ± 2.39 times faster than ./nushell
-  17.43 ± 2.86 times faster than ./php
-  23.01 ± 3.94 times faster than ./ocaml
-  35.43 ± 5.99 times faster than ./ruby
-  52.94 ± 9.08 times faster than ./racket
-  56.77 ± 9.59 times faster than ./perl
-  89.13 ± 14.62 times faster than ./dart
-106.23 ± 18.77 times faster than ./swift
-143.96 ± 24.03 times faster than ./julia
-199.84 ± 33.40 times faster than ./roc.roc
-224.83 ± 47.56 times faster than ./elixir
-483.43 ± 87.95 times faster than ./haskell
-507.16 ± 114.14 times faster than ./scala
-528.19 ± 94.47 times faster than ./fsharp.fsx
-```
+Check out the
+[workflow runs](https://github.com/Airsequel/interpreted-languages-benchmark/actions)
+for the latest benchmark results.
 
 
 ## Related

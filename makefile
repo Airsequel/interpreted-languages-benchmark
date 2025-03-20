@@ -3,8 +3,8 @@ help: makefile
 	@tail -n +4 makefile | grep ".PHONY"
 
 
-.PHONY: run
-run:
+.PHONY: run-bucket-calc
+run-bucket-calc:
 	@hyperfine \
 		--shell=none \
 		--warmup 10 \
