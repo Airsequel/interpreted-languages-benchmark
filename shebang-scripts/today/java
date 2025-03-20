@@ -1,0 +1,11 @@
+#!/usr/bin/env -S java --source 11
+
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
+
+public class Java {
+  public static void main(String[] args) {
+    LocalDate today = ZonedDateTime.now().toLocalDate();
+    System.out.println(today);
+  }
+}

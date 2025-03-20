@@ -51,6 +51,9 @@ jobs:
       - name: Set up Janet
         run: brew install janet
 
+      - name: Set up Java
+        run: brew install java
+
       - name: Set up Julia
         run: brew install julia
 

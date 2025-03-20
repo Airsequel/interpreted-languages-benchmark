@@ -10,6 +10,7 @@
 ./guile
 ./haskell
 ./janet
+./java
 ./julia
 ./ksh
 ./lua
