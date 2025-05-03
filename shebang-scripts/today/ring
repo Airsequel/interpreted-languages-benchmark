@@ -1,0 +1,7 @@
+#!/usr/bin/env ring
+
+Load "stdlib.ring"
+
+oDateTime = new datetime
+
+See oDateTime.date() + oDateTime.time() + nl

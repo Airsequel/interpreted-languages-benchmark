@@ -1,0 +1,3 @@
+#!/usr/bin/env -S sqlite3 :memory: select'' -init
+
+SELECT datetime();

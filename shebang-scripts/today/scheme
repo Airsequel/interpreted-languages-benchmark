@@ -1,0 +1,5 @@
+#!/usr/bin/env gosh
+
+;;https://github.com/shirok/Gauche
+
+(print "TODO")

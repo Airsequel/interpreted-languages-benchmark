@@ -1,0 +1,11 @@
+#!/usr/bin/env haxe --run Script
+
+// Currently not possible:
+// https://github.com/HaxeFoundation/haxe/issues/6578
+
+class Script {
+  static function main() {
+    var now = Date.now();
+    trace(now.toString());
+  }
+}

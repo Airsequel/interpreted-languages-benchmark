@@ -1,0 +1,5 @@
+#!/usr/bin/env dotnet-script
+
+using System;
+
+Console.WriteLine(DateTime.Now);

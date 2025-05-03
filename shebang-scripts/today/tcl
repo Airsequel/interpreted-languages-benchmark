@@ -1,0 +1,3 @@
+#!/usr/bin/env tclsh
+
+puts [clock format [clock seconds] -format "%Y-%m-%d %H:%M:%S"]

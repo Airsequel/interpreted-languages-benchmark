@@ -1,0 +1,5 @@
+#!/usr/bin/env uiua
+
+datetime now         # Time
+⍚(⬚@0↙¯⊙°⋕) [4....2] # Pad
+°[°$"_-_-_ _:_:_"]   # Format

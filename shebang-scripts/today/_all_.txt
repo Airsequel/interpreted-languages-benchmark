@@ -1,20 +1,37 @@
+./apl
 ./bash
-./bun
+# ./common-lisp-ciel
+# ./common-lisp-embeddable
+# ./common-lisp-steel-bank
+# ./csharp
 ./d.d
 ./dart
 ./dash
 ./elixir
 ./elvish
+./erlang
+./factor
 ./fish
+./forth
 ./fsharp.fsx
+./groovy
 ./guile
 ./haskell
+# ./haxe - TODO: Fix script
+./j
 ./janet
 ./java
+./javascript-bun
+./javascript-node
+./jq
 ./julia
 ./ksh
+./lisp-emacs
 ./lua
 ./luajit
+./luau
+./make
+./nim.nim
 ./nushell
 ./ocaml
 ./osh
@@ -23,9 +40,16 @@
 ./python
 ./r
 ./racket
+# ./ring - TODO: Enable in CI
+./ruby
 ./rust-script
 # ./roc.roc - TODO: Fix roc on GitHub Actions
-./ruby
 ./scala
+./smalltalk-gnu
+./sqlite
 ./swift
+./tcl
+./tcsh
+./uiua
 ./v.vsh
+./zsh

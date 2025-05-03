@@ -1,0 +1,9 @@
+#!/usr/bin/env ecl
+
+;; https://ecl.common-lisp.dev
+
+(local-time:format-timestring
+  nil
+  (local-time:now)
+  :format '(:year "-" :month "-" :day)
+)

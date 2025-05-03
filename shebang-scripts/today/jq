@@ -1,0 +1,3 @@
+#!/usr/bin/env jq --null-input --monochrome-output --raw-output --from-file
+
+now | todateiso8601

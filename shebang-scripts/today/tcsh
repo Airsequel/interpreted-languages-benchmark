@@ -1,0 +1,3 @@
+#! /bin/tcsh
+
+date -u "+%Y-%m-%d"

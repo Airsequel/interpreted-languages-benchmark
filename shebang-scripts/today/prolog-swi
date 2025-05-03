@@ -1,0 +1,9 @@
+#!/usr/bin/env swipl
+
+:- initialization(main, main).
+
+main :-
+  get_time(Stamp),
+  stamp_date_time(Stamp, DateTime, 'UTC'),
+  format_time(atom(String), '%Y-%m-%d %H:%M:%S', DateTime),
+  writeln(String).

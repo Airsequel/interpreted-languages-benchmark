@@ -1,0 +1,8 @@
+#!/usr/bin/env jconsole
+
+datetime =: 6!:0 ''
+datetime_no_ms =. (<. datetime)
+
+smoutput datetime_no_ms
+
+exit 0

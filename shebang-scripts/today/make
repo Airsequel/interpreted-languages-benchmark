@@ -1,0 +1,4 @@
+#! /usr/bin/make -f
+
+default:
+	@date -u "+%Y-%m-%d"

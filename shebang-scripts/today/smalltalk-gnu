@@ -1,0 +1,13 @@
+#!/usr/bin/env gst
+
+now := DateTime now.
+formatted := (
+  (now year printPaddedWith: $0 to: 4), '-',
+  (now month printPaddedWith: $0 to: 2), '-',
+  (now day printPaddedWith: $0 to: 2), ' ',
+  (now hour printPaddedWith: $0 to: 2), ':',
+  (now minute printPaddedWith: $0 to: 2), ':',
+  (now second printPaddedWith: $0 to: 2)
+).
+
+formatted displayNl.

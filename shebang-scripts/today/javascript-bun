@@ -1,4 +1,4 @@
-#! /usr/bin/env bun
+#!/usr/bin/env bun
 // TODO: Absolute path to bun needs to be the same in CI and local
 
 console.log(new Date().toISOString().slice(0, 10))

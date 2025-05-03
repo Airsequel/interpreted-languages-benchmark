@@ -1,0 +1,28 @@
+#!/usr/bin/env gforth
+
+: 2digit ( n -- )
+  \ Print a number with leading zero if needed
+  s>d <# # # #> type
+  ;
+
+: yyyy-mm-dd
+  time&date  \ Returns ( sec min hour day month year )
+
+  s>d <# # # # # #> type  \ Print year (top of stack, 4 digits)
+
+  ." -"  \ Print separator
+
+  2digit  \ Print month with padding
+
+  ." -"  \ Print separator
+
+  2digit  \ Print day with padding
+
+  \ Discard remaining values ( sec min hour )
+  drop drop drop
+  ;
+
+\ Main program
+yyyy-mm-dd
+cr
+bye

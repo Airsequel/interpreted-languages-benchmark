@@ -1,0 +1,12 @@
+#!/Applications/factor/factor
+
+USING: calendar calendar.format io time ;
+IN: print-current-date
+
+: print-current-date ( -- )
+    today
+    timestamp>ymd
+    print
+    ;
+
+MAIN: print-current-date

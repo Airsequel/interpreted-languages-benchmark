@@ -1,4 +1,4 @@
-#! /usr/bin/env roc
+#!/usr/bin/env roc
 
 app "hello-world"
   packages {

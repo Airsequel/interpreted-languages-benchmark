@@ -1,0 +1,7 @@
+#!/usr/bin/env ciel
+
+(local-time:format-timestring
+  nil
+  (local-time:now)
+  :format '(:year "-" :month "-" :day)
+)

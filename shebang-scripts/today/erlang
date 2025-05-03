@@ -1,0 +1,8 @@
+#!/usr/bin/env escript
+
+main(_Args) ->
+  {{Year, Month, Day}, {Hour, Minute, Second}} = calendar:local_time(),
+  io:format(
+    "~4..0B-~2..0B-~2..0B ~2..0B:~2..0B:~2..0B~n",
+    [Year, Month, Day, Hour, Minute, Second]
+  ).

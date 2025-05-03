@@ -1,4 +1,4 @@
-#! /usr/bin/env stack
+#!/usr/bin/env stack
 -- stack script --package time --snapshot lts-22.22
 
 -- TODO: Absolute path to `stack` needs to be the same in CI and local

@@ -1,4 +1,4 @@
-#! /usr/bin/env v
+#!/usr/bin/env v
 
 // TODO: Absolute path to v needs to be the same in CI and local
 import time

@@ -16,6 +16,9 @@ jobs:
       - name: Set up Bun
         uses: oven-sh/setup-bun@v2
 
+      - name: Set up APL
+        run: brew install dyalog
+
       - name: Set up D
         run: brew install ldc dtools
 
@@ -36,14 +39,38 @@ jobs:
       - name: Set up Elvish
         run: brew install elvish
 
+      - name: Set up Emacs Lisp
+        run: brew install emacs
+
+      - name: Set up Erlang
+        run: brew install erlang
+
+      - name: Set up Factor
+        run: brew install factor
+
       - name: Set up Fish
         run: brew install fish
+
+      - name: Set up Forth
+        run: brew install gforth
+
+      - name: Set up GNU Smalltalk
+        run: brew install gnu-smalltalk
 
       - name: Set up Godot for GDScript
         run: brew install godot
 
+      - name: Set up Groovy
+        run: brew install groovy
+
       - name: Set up Guile
         run: brew install guile
+
+      - name: Set up Haxe
+        run: brew install haxe
+
+      - name: Set up J
+        run: brew install j
 
       - name: Set up Janet
         run: brew install janet
@@ -54,17 +81,26 @@ jobs:
       - name: Set up Julia
         run: brew install --formula julia
 
+      - name: Set up Jq
+        run: brew install jq
+
       - name: Set up Lua
         run: brew install lua
 
       - name: Set up Luajit
         run: brew install luajit
 
+      - name: Set up Luau
+        run: brew install lua
+
       - name: Set up Ngs
         run: brew install ngs
 
       - name: Set up Nickel
         run: brew install nickel
+
+      - name: Set up Nim
+        run: brew install nim
 
       - name: Set up Nix
         uses: cachix/install-nix-action@v31
@@ -107,13 +143,22 @@ jobs:
           brew install scala
           brew install Virtuslab/scala-cli/scala-cli
 
+      - name: Set up SWI-Prolog
+        run: brew install swi-prolog
+
       - name: Set up Haskell's Stack
         uses: haskell-actions/setup@v2
         with:
           enable-stack: true
 
+      - name: Install TCL
+        run: brew install tcl-tk
+
       - name: Set up Typst
         run: brew install typst
+
+      - name: Set up Uiua
+        run: cargo install --git https://github.com/uiua-lang/uiua uiua
 
       - name: Set up V
         uses: vlang/setup-v@v1.4
