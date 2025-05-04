@@ -178,13 +178,6 @@ jobs:
       - name: Generate chart
         run: make -B shebang-scripts/today/chart.svg
 
-      - name: Upload chart as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: benchmark-chart
-          path: shebang-scripts/today/chart.svg
-          if-no-files-found: error
-
       - name: Commit and push updated chart
         run: |
           git config --local user.email "action@github.com"
