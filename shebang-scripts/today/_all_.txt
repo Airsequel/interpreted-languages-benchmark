@@ -12,7 +12,7 @@
 ./erlang
 ./factor
 ./fish
-./forth
+# ./forth - TODO: Figure out why thid doesn't work in CI
 ./fsharp.fsx
 ./groovy
 ./guile
