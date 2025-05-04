@@ -52,6 +52,7 @@ print-versions:
 	@printf '"ngs": "%s",\n' "$$(ngs --version)"
 	@printf '"nickel": "%s",\n' "$$(nickel --version)"
 	@printf '"nim": "%s",\n' "$$(nim e --hints:off --version | head -n1)"
+	@printf '"nix": "%s",\n' "$$(nix --version | tail -c 8 | tr -d ' ')"
 	@printf '"node.js": "%s",\n' "$$(node --version)"
 	@printf '"nu": "%s",\n' "$$(nu --version)"
 	@printf '"ocaml": "%s",\n' "$$(ocaml -I +unix --version)"
@@ -91,4 +92,3 @@ shebang-scripts/node_modules:
 
 shebang-scripts/today/chart.svg: shebang-scripts/node_modules
 	bun run ./shebang-scripts/generate-chart.ts
-
