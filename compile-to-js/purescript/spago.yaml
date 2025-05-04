@@ -1,0 +1,11 @@
+package:
+  name: purescript
+  dependencies:
+    - console
+    - effect
+    - halogen
+    - prelude
+workspace:
+  packageSet:
+    registry: 64.6.1
+  extraPackages: {}

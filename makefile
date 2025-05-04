@@ -75,6 +75,18 @@ print-versions:
 	@echo "}"
 
 
+.PHONY: run-compile-to-js
+run-compile-to-js:
+	hyperfine \
+		--shell none \
+		--warmup 10 \
+		--export-json result.json \
+		--prepare 'make clean' \
+		'cd compile-to-js/elm && elm make src/Main.elm' \
+		'cd compile-to-js/purescript && spago build' \
+		'cd compile-to-js/rescript && npx rescript'
+
+
 .PHONY: run-shebangs
 run-shebangs:
 	cd shebang-scripts/today \
@@ -92,3 +104,19 @@ shebang-scripts/node_modules:
 
 shebang-scripts/today/chart.svg: shebang-scripts/node_modules
 	bun run ./shebang-scripts/generate-chart.ts
+
+
+.PHONY: clean
+clean:
+	rm -rf shebang-scripts/node_modules
+
+	rm -rf compile-to-js/elm/elm-stuff
+	rm -rf compile-to-js/elm/index.html
+
+	rm -rf compile-to-js/purescript/.purs*
+	rm -rf compile-to-js/purescript/.spago
+	rm -rf compile-to-js/purescript/node_modules
+	rm -rf compile-to-js/purescript/output
+
+	rm -rf compile-to-js/rescript/lib
+	rm -rf compile-to-js/rescript/node_modules
