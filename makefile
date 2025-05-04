@@ -84,6 +84,11 @@ run-shebangs:
 		$$(grep -v '^#' _all_.txt)
 
 
-shebang-scripts/today/chart.svg:
+shebang-scripts/node_modules:
+	cd shebang-scripts \
+	&& bun install
+
+
+shebang-scripts/today/chart.svg: shebang-scripts/node_modules
 	bun run ./shebang-scripts/generate-chart.ts
 
