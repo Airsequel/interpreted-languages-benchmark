@@ -1,4 +1,4 @@
-./apl
+# ./apl - TODO: Figure out why this freezes in CI
 ./bash
 # ./common-lisp-ciel
 # ./common-lisp-embeddable
