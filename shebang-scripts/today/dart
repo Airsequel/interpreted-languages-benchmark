@@ -1,4 +1,4 @@
-#! /opt/homebrew/bin/dart
+#!/usr/bin/env dart
 
 void main() {
   DateTime now = DateTime.now();

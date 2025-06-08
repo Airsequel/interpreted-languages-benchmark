@@ -1,4 +1,4 @@
-#! /opt/homebrew/bin/racket
+#! /usr/bin/env racket
 #lang racket/base
 
 (define (pad-zero n)

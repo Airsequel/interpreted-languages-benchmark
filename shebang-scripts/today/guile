@@ -1,4 +1,4 @@
-#! /opt/homebrew/bin/guile
+#! /usr/bin/env guile
 !#
 
 (use-modules (srfi srfi-19))

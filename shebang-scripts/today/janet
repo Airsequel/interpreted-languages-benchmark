@@ -1,4 +1,4 @@
-#! /opt/homebrew/bin/janet
+#! /usr/bin/env janet
 
 (defn to-double-digit-string [digit]
   (string/slice (string "0" digit) -3))

@@ -1,3 +1,3 @@
-#! /opt/homebrew/bin/ngs
+#! /usr/bin/env ngs
 
 date -u "+%Y-%m-%d"

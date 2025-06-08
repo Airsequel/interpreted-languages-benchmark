@@ -106,6 +106,17 @@ shebang-scripts/today/chart.svg: shebang-scripts/node_modules
 	bun run ./shebang-scripts/generate-chart.ts
 
 
+# Run all scripts once to make sure they work
+.PHONY: test
+test:
+	nix flake check --no-warn-dirty
+	cd shebang-scripts/today \
+	&& hyperfine \
+		--shell none \
+		--runs 1 \
+		$$(grep -v '^#' _all_.txt)
+
+
 .PHONY: clean
 clean:
 	rm -rf shebang-scripts/node_modules

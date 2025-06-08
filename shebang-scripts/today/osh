@@ -1,3 +1,3 @@
-#! /opt/homebrew/bin/osh
+#! /usr/bin/env osh
 
 date -u "+%Y-%m-%d"

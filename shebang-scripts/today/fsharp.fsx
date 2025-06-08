@@ -1,6 +1,6 @@
 #!/usr/bin/env -S dotnet fsi
 
-// TODO: Directly calling /opt/homebrew/bin/dotnet does not work
+// TODO: Directly calling /usr/bin/env dotnet does not work
 
 open System
 
