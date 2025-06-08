@@ -87,6 +87,27 @@ run-compile-to-js:
 		'cd compile-to-js/rescript && npx rescript'
 
 
+.PHONY: compile
+compile:
+	mkdir -p output/hello_world
+	ghc --make -O2 \
+		-o output/hello_world/main-hs \
+		compiled/hello_world/Main.hs
+	mhs \
+		-o output/hello_world/mainmicro-hs \
+		compiled/hello_world/mainmicro.hs
+
+
+.PHONY: run-compiled
+run-compiled: compile
+	hyperfine \
+		--shell none \
+		--warmup 10 \
+		--export-json result.json \
+		'./output/hello_world/main-hs' \
+		'./output/hello_world/mainmicro-hs'
+
+
 .PHONY: run-shebangs
 run-shebangs:
 	cd shebang-scripts/today \
