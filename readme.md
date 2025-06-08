@@ -127,14 +127,19 @@ for the latest benchmark results.
 
 ## Related
 
+- [Completely Unscientific Benchmarks] - Naive performance comparison of several languages
+- [Count Words] - Counting words in Python, Go, C++, C, AWK, Forth, and Rust
 - [ffi-overhead] - Comparing the C FFI overhead of various programming languages
 - [gradbench] - Benchmarks for differentiable programming across languages and domains
 - [jinyus/related_post_gen] - Data Processing benchmark
-- [Languages] - Comparing programming languages with micro benchmarks.
+- [Languages] - Comparing programming languages with micro benchmarks
 - [plb2] - A programming language benchmark
 - [Programming-Language-Benchmarks][PLB]
 - [script-bench-rs] - Rust embedded scripting languages benchmark
+- [Sharkbench] - Benchmarking programming languages and web frameworks.
+- [SpeedTests] - Comparing the execution speeds of various programming languages.
 
+[Completely Unscientific Benchmarks]: https://github.com/frol/completely-unscientific-benchmarks
 [Count Words]: https://benhoyt.com/writings/count-words/
 [ffi-overhead]: https://github.com/dyu/ffi-overhead
 [gradbench]: https://github.com/gradbench/gradbench
@@ -143,3 +148,5 @@ for the latest benchmark results.
 [PLB]: https://github.com/hanabi1224/Programming-Language-Benchmarks
 [plb2]: https://github.com/attractivechaos/plb2
 [script-bench-rs]: https://github.com/khvzak/script-bench-rs
+[Sharkbench]: https://github.com/sharkbench/sharkbench
+[SpeedTests]: https://github.com/jabbalaci/SpeedTests
