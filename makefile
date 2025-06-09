@@ -118,6 +118,16 @@ run-shebangs:
 		$$(grep -v '^#' _all_.txt)
 
 
+.PHONY: run-shebangs-hello-world
+run-shebangs-hello-world:
+	cd shebang-scripts/hello_world \
+	&& hyperfine \
+		--shell none \
+		--warmup 10 \
+		--export-json result.json \
+		$$(grep -v '^#' _all_.txt)
+
+
 shebang-scripts/node_modules:
 	cd shebang-scripts \
 	&& bun install
