@@ -1,2 +1,10 @@
 .aider*
 .direnv
+*.class
+*.cmi
+*.cmx
+*.hi
+*.o
+output/
+result.json
+v

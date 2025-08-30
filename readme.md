@@ -2,14 +2,23 @@
 
 Benchmark for interpreted languages.
 
-![Barchart for relative execution speed](shebang-scripts/today/chart.svg)
+
+## Interpreted Languages
 
 The values for Rust, V, Swift, D and Haskell are not really representative
 as they are compiled on the first run
 and Haskell unfortunately does not even cache the compiled binary.
 
+![Barchart for relative execution speed](shebang-scripts/today/chart.svg)
 
-## Languages
+
+## Compiled Languages
+
+![Barchart for compiled languages relative execution speed](
+  compiled/hello_world/compiled-chart.svg)
+
+
+## All Languages
 
 - [Bash]
 - [D]

@@ -7,7 +7,7 @@ import vl from "vega-lite"
 
 // Load data from the JSON file
 const data = JSON.parse(
-  fs.readFileSync(path.join(__dirname, "/today/result.json"), "utf8"),
+  fs.readFileSync(path.join(import.meta.dirname, "/today/result.json"), "utf8"),
 )
 
 // Extract data from the JSON
@@ -52,7 +52,7 @@ const spec = {
   title: `Relative Execution Speed (Higher is Better)`,
   mark: "bar",
   width: 800,
-  height: 600,
+  height: 400,
   encoding: {
     x: {
       field: "command",
@@ -81,6 +81,6 @@ const view = new vega.View(vega.parse(runtime), { renderer: "none" })
 
 // Export to SVG
 view.toSVG().then((svg) => {
-  fs.writeFileSync(path.join(__dirname, "today/chart.svg"), svg)
+  fs.writeFileSync(path.join(import.meta.dirname, "today/chart.svg"), svg)
   console.log("Chart generated successfully!")
 })

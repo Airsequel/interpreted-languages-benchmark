@@ -22,18 +22,24 @@
             bash
             bun
             coreutils
+            crystal
             dart
             dash
             deno
+            # dmd  # D language TODO: Currently broken on macOS
             dotnet-sdk
             elixir
             elvish
             erlang
             # factor
             fish
+            fpc # Free Pascal Compiler
             # gforth
+            # gfortran  # TODO: Currently broken on macOS
+            ghc
             git
             # gnu-smalltalk
+            # gnat15 # Ada compiler TODO: Currently broken on macOS
             gnumake
             groovy
             guile
@@ -43,6 +49,7 @@
             janet
             jq
             julia-lts
+            kotlin
             ksh
             # ldc
             lua
@@ -59,13 +66,15 @@
             php
             python3
             # r
-            # racket
+            # racket  # TODO: Currently broken on macOS
             rust-script
             scala
             sqlite
+            stack
             swift
             tcl
             tcsh
+            # tinycc  # TODO: Currently broken on macOS
             typst
             uiua
             # v
