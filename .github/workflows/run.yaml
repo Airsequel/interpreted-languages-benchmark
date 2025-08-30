@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build:
+  run-shebang-benchmarks:
     runs-on: macos-15
 
     steps:
@@ -175,9 +175,6 @@ jobs:
       - name: Run shebang-scripts today benchmark
         run: make run-shebangs-today
 
-      - name: Run compile "Hello World" benchmark
-        run: make run-compiled-hello-world
-
       - name: Generate SVG charts
         run: make -B charts
 
@@ -189,3 +186,20 @@ jobs:
           git add compiled/hello_world/compiled-chart.svg
           git commit -m "Update benchmark charts [skip ci]" || echo "No changes to commit"
           git push
+
+
+  run-compiled-benchmarks:
+    runs-on: macos-15
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Nix
+        uses: cachix/install-nix-action@v31
+
+      - name: Run compile "Hello World" benchmark
+        run: make run-compiled-hello-world
+
+      - name: Generate SVG charts
+        run: make -B charts
