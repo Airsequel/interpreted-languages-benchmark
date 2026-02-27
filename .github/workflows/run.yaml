@@ -208,18 +208,8 @@ jobs:
       - name: Set up Nix
         uses: cachix/install-nix-action@v31
 
-      - name: Install direnv
-        run: |
-          curl -sfL https://direnv.net/install.sh | bash
-          echo "$HOME/.local/bin" >> $GITHUB_PATH
-
-      - name: Load environment variables
-        run: |
-          direnv allow .
-          direnv export gha > "$GITHUB_ENV"
-
       - name: Run hello world benchmark
-        run: make run-hello-world
+        run: nix develop --command make run-hello-world
 
       - name: Generate chart
         run: make -B compiled/hello_world/hello-world-chart.svg
