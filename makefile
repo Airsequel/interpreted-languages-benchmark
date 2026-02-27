@@ -173,8 +173,8 @@ compile:
 		compiled/hello_world/main.m
 
 
-.PHONY: run-compiled-hello-world
-run-compiled-hello-world: compile
+.PHONY: run-hello-world
+run-hello-world: compile
 	hyperfine \
 		--shell none \
 		--warmup 10 \
@@ -193,7 +193,46 @@ run-compiled-hello-world: compile
 		'./output/hello_world/main-pascal' \
 		'java -cp output/hello_world/main-kotlin.jar MainKt' \
 		'java -cp output/hello_world/main-java.jar Main' \
-		'./output/hello_world/main-objc'
+		'./output/hello_world/main-objc' \
+		'bash ./shebang-scripts/hello_world/bash' \
+		'dart run compiled/hello_world/main.dart' \
+		'dash ./shebang-scripts/hello_world/dash' \
+		'elixir ./shebang-scripts/hello_world/elixir' \
+		'elvish ./shebang-scripts/hello_world/elvish' \
+		'escript ./shebang-scripts/hello_world/erlang' \
+		'fish ./shebang-scripts/hello_world/fish' \
+		'dotnet fsi ./shebang-scripts/hello_world/fsharp.fsx' \
+		'groovy ./shebang-scripts/hello_world/groovy' \
+		'guile -s ./shebang-scripts/hello_world/guile' \
+		'runhaskell compiled/hello_world/Main.hs' \
+		'mhs -r compiled/hello_world/MainMicro.hs' \
+		'janet ./shebang-scripts/hello_world/janet' \
+		'java --source 11 ./shebang-scripts/hello_world/java' \
+		'bun run ./shebang-scripts/hello_world/javascript-bun' \
+		'node ./shebang-scripts/hello_world/javascript-node' \
+		'jq -n -f ./shebang-scripts/hello_world/jq' \
+		'julia ./shebang-scripts/hello_world/julia' \
+		'ksh ./shebang-scripts/hello_world/ksh' \
+		'lua ./shebang-scripts/hello_world/lua' \
+		'luajit ./shebang-scripts/hello_world/luajit' \
+		'luau ./shebang-scripts/hello_world/luau' \
+		'make -f ./shebang-scripts/hello_world/make' \
+		'nim r --hints:off compiled/hello_world/main.nim' \
+		'nu ./shebang-scripts/hello_world/nushell' \
+		'ocaml compiled/hello_world/main.ml' \
+		'perl ./shebang-scripts/hello_world/perl' \
+		'php compiled/hello_world/main.php' \
+		'python3 ./shebang-scripts/hello_world/python' \
+		'ruby ./shebang-scripts/hello_world/ruby' \
+		'rust-script ./shebang-scripts/hello_world/rust-script' \
+		'sqlite3 :memory: -init compiled/hello_world/main.sql ""' \
+		'tclsh ./shebang-scripts/hello_world/tcl' \
+		'tcsh ./shebang-scripts/hello_world/tcsh' \
+		'uiua run compiled/hello_world/main.ua' \
+		'v run compiled/hello_world/main.v' \
+		'wolframscript -file ./shebang-scripts/hello_world/wolfram-language-wolframscript' \
+		'woxi run ./shebang-scripts/hello_world/wolfram-language-woxi' \
+		'zsh ./shebang-scripts/hello_world/zsh'
 
 
 .PHONY: run-shebangs-today
@@ -224,14 +263,14 @@ shebang-scripts/node_modules:
 shebang-scripts/today/chart.svg: shebang-scripts/node_modules
 	bun run ./shebang-scripts/generate-chart.ts
 
-compiled/hello_world/compiled-chart.svg: shebang-scripts/node_modules flake.nix flake.lock
-	bun run ./generate-compiled-chart.ts
+compiled/hello_world/hello-world-chart.svg: shebang-scripts/node_modules flake.nix flake.lock
+	bun run ./generate-hello-world-chart.ts
 
 bucket-calc/chart.svg: shebang-scripts/node_modules
 	bun run ./generate-bucket-calc-chart.ts
 
 .PHONY: charts
-charts: shebang-scripts/today/chart.svg compiled/hello_world/compiled-chart.svg bucket-calc/chart.svg
+charts: shebang-scripts/today/chart.svg compiled/hello_world/hello-world-chart.svg bucket-calc/chart.svg
 
 
 # Run all scripts once to make sure they work

@@ -1,0 +1,3 @@
+#!/usr/bin/env ocaml -I +unix
+
+print_endline "Hello, World!";;

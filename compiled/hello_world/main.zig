@@ -1,6 +1,8 @@
 const std = @import("std");
 
 pub fn main() !void {
-    const stdout = std.io.getStdOut().writer();
-    try stdout.print("Hello, World!\n", .{});
+    var buf: [4096]u8 = undefined;
+    var stdout = std.fs.File.stdout().writer(&buf);
+    try stdout.interface.print("Hello, World!\n", .{});
+    try stdout.interface.flush();
 }

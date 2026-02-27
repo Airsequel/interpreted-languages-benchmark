@@ -1,0 +1,3 @@
+#!/usr/bin/env uiua
+
+&p "Hello, World!"

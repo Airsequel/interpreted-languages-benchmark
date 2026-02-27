@@ -12,9 +12,9 @@ and Haskell unfortunately does not even cache the compiled binary.
 ![Barchart for relative execution speed](shebang-scripts/today/chart.svg)
 
 
-## Compiled Languages
+## Hello World
 
-![Barchart for compiled languages relative execution speed](compiled/hello_world/compiled-chart.svg)
+![Barchart for hello world relative execution speed](compiled/hello_world/hello-world-chart.svg)
 
 
 ## Bucket Calc

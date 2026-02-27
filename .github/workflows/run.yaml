@@ -169,34 +169,6 @@ jobs:
       - name: Print versions
         run: make print-versions
 
-      - name: Run bucket-calc benchmark
-        run: make run-bucket-calc
-
-      - name: Run shebang-scripts today benchmark
-        run: make run-shebangs-today
-
-      - name: Generate SVG chart
-        run: make -B shebang-scripts/today/chart.svg
-
-      - name: Commit and push updated chart
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add shebang-scripts/today/chart.svg
-          git commit -m "Update benchmark charts [skip ci]" || echo "No changes to commit"
-          git push
-
-
-  run-compiled-benchmarks:
-    runs-on: macos-15
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Nix
-        uses: cachix/install-nix-action@v31
-
       - name: Install direnv
         run: |
           curl -sfL https://direnv.net/install.sh | bash
@@ -207,8 +179,24 @@ jobs:
           direnv allow .
           direnv export gha > "$GITHUB_ENV"
 
-      - name: Run compile "Hello World" benchmark
-        run: make run-compiled-hello-world
+      - name: Run bucket-calc benchmark
+        run: make run-bucket-calc
+
+      - name: Run shebang-scripts today benchmark
+        run: make run-shebangs-today
+
+      - name: Run hello world benchmark
+        run: make run-hello-world
 
       - name: Generate SVG charts
         run: make -B charts
+
+      - name: Commit and push updated charts
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add shebang-scripts/today/chart.svg
+          git add compiled/hello_world/hello-world-chart.svg
+          git add bucket-calc/chart.svg
+          git commit -m "Update benchmark charts [skip ci]" || echo "No changes to commit"
+          git push
