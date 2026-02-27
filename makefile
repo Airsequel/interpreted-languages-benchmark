@@ -8,15 +8,47 @@ run-bucket-calc:
 	@hyperfine \
 		--shell=none \
 		--warmup 10 \
+		--export-json bucket-calc/result.json \
 		'python3 bucket-calc/main.py' \
+		'ruby bucket-calc/main.rb' \
+		'perl bucket-calc/main.pl' \
+		'php bucket-calc/main.php' \
+		'tclsh bucket-calc/main.tcl' \
 		'node bucket-calc/main.js' \
 		'deno run bucket-calc/main.ts' \
 		'deno run bucket-calc/main.js' \
 		'bun run bucket-calc/main.ts' \
-		'bun run bucket-calc/main.js'\
+		'bun run bucket-calc/main.js' \
 		'lua bucket-calc/main.lua' \
+		'luajit bucket-calc/main.lua' \
+		'luau bucket-calc/main.luau' \
+		'java --source 11 bucket-calc/main.java' \
+		'groovy bucket-calc/main.groovy' \
+		'dotnet fsi bucket-calc/main.fsx' \
+		'dart run bucket-calc/main.dart' \
+		'julia bucket-calc/main.jl' \
+		'runhaskell bucket-calc/main.hs' \
+		'ocaml bucket-calc/main.ml' \
+		'nim r --hints:off bucket-calc/main.nim' \
+		'rust-script bucket-calc/main.rs' \
+		'v run bucket-calc/main.v' \
+		'elixir bucket-calc/main.exs' \
+		'escript bucket-calc/main.escript' \
+		'janet bucket-calc/main.janet' \
+		'guile -s bucket-calc/main.scm' \
+		'jq -n -f bucket-calc/main.jq' \
+		'uiua run bucket-calc/main.ua' \
+		'sqlite3 :memory: -init bucket-calc/main.sql ""' \
+		'nu bucket-calc/main.nu' \
 		'nickel export bucket-calc/main.ncl' \
-		'typst query --field=text --one bucket-calc/main.typ "<main>"'
+		'nix eval --file bucket-calc/main.nix' \
+		'typst query --field=text --one bucket-calc/main.typ "<main>"' \
+		'wolframscript -file bucket-calc/main-wolframscript.wls' \
+		'woxi run bucket-calc/main-woxi.wls' \
+		'bash bucket-calc/main.bash' \
+		'zsh bucket-calc/main.zsh' \
+		'fish bucket-calc/main.fish' \
+		'elvish bucket-calc/main.elv'
 
 
 # Print all language and tool versions as one JSON object
@@ -195,8 +227,11 @@ shebang-scripts/today/chart.svg: shebang-scripts/node_modules
 compiled/hello_world/compiled-chart.svg: shebang-scripts/node_modules flake.nix flake.lock
 	bun run ./generate-compiled-chart.ts
 
+bucket-calc/chart.svg: shebang-scripts/node_modules
+	bun run ./generate-bucket-calc-chart.ts
+
 .PHONY: charts
-charts: shebang-scripts/today/chart.svg compiled/hello_world/compiled-chart.svg
+charts: shebang-scripts/today/chart.svg compiled/hello_world/compiled-chart.svg bucket-calc/chart.svg
 
 
 # Run all scripts once to make sure they work
@@ -208,6 +243,11 @@ test:
 		--shell none \
 		--runs 1 \
 		$$(grep -v '^#' _all_.txt)
+
+
+.PHONY: format
+format:
+	echo "TODO"
 
 
 .PHONY: clean

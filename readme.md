@@ -14,8 +14,14 @@ and Haskell unfortunately does not even cache the compiled binary.
 
 ## Compiled Languages
 
-![Barchart for compiled languages relative execution speed](
-  compiled/hello_world/compiled-chart.svg)
+![Barchart for compiled languages relative execution speed](compiled/hello_world/compiled-chart.svg)
+
+
+## Bucket Calc
+
+Calculates logarithmically-spaced histogram bin edges.
+
+![Barchart for bucket calc relative execution speed](bucket-calc/chart.svg)
 
 
 ## All Languages
