@@ -6,8 +6,20 @@ on:
       - main
 
 jobs:
-  run-shebang-benchmarks:
+  run-interpreted-benchmarks:
     runs-on: macos-15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - benchmark: run-shebangs-today
+            chart-target: shebang-scripts/today/chart.svg
+            artifact-name: today-chart
+            artifact-path: shebang-scripts/today/chart.svg
+          - benchmark: run-bucket-calc
+            chart-target: bucket-calc/chart.svg
+            artifact-name: bucket-calc-chart
+            artifact-path: bucket-calc/chart.svg
 
     steps:
       - name: Checkout code
@@ -167,7 +179,34 @@ jobs:
         run: brew install hyperfine
 
       - name: Print versions
+        if: matrix.benchmark == 'run-shebangs-today'
         run: make print-versions
+
+      - name: Run benchmark
+        run: make ${{ matrix.benchmark }}
+
+      - name: Generate chart
+        run: make -B ${{ matrix.chart-target }}
+
+      - name: Upload chart
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact-name }}
+          path: ${{ matrix.artifact-path }}
+
+
+  run-hello-world:
+    runs-on: macos-15
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Set up Nix
+        uses: cachix/install-nix-action@v31
 
       - name: Install direnv
         run: |
@@ -179,17 +218,44 @@ jobs:
           direnv allow .
           direnv export gha > "$GITHUB_ENV"
 
-      - name: Run bucket-calc benchmark
-        run: make run-bucket-calc
-
-      - name: Run shebang-scripts today benchmark
-        run: make run-shebangs-today
-
       - name: Run hello world benchmark
         run: make run-hello-world
 
-      - name: Generate SVG charts
-        run: make -B charts
+      - name: Generate chart
+        run: make -B compiled/hello_world/hello-world-chart.svg
+
+      - name: Upload chart
+        uses: actions/upload-artifact@v4
+        with:
+          name: hello-world-chart
+          path: compiled/hello_world/hello-world-chart.svg
+
+
+  commit-charts:
+    needs: [run-interpreted-benchmarks, run-hello-world]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download today chart
+        uses: actions/download-artifact@v4
+        with:
+          name: today-chart
+          path: shebang-scripts/today/
+
+      - name: Download bucket-calc chart
+        uses: actions/download-artifact@v4
+        with:
+          name: bucket-calc-chart
+          path: bucket-calc/
+
+      - name: Download hello-world chart
+        uses: actions/download-artifact@v4
+        with:
+          name: hello-world-chart
+          path: compiled/hello_world/
 
       - name: Commit and push updated charts
         run: |
