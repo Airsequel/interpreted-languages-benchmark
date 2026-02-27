@@ -15,7 +15,12 @@
     utils.lib.eachSystem supportedSystems (
       system:
       let
-        pkgs = import nixpkgs { inherit system; };
+        pkgs = import nixpkgs {
+          inherit system;
+          config.permittedInsecurePackages = [
+            "mbedtls-2.28.10" # Required by haxe
+          ];
+        };
       in {
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
@@ -55,6 +60,7 @@
             lua
             luajit
             luau
+            microhs
             nickel
             nim
             nodejs
@@ -67,7 +73,9 @@
             python3
             # r
             # racket  # TODO: Currently broken on macOS
+            ruby
             rust-script
+            rustc
             scala
             sqlite
             stack
@@ -77,7 +85,8 @@
             # tinycc  # TODO: Currently broken on macOS
             typst
             uiua
-            # v
+            vlang
+            zig
             zsh
           ];
         };
