@@ -136,6 +136,7 @@ for the latest benchmark results.
 
 ## Related
 
+- [BenchGen] - Automatic generation of benchmarks to stress-test systems.
 - [Completely Unscientific Benchmarks] - Naive performance comparison of several languages
 - [Count Words] - Counting words in Python, Go, C++, C, AWK, Forth, and Rust
 - [ffi-overhead] - Comparing the C FFI overhead of various programming languages
@@ -148,6 +149,7 @@ for the latest benchmark results.
 - [Sharkbench] - Benchmarking programming languages and web frameworks.
 - [SpeedTests] - Comparing the execution speeds of various programming languages.
 
+[BenchGen]: https://github.com/lac-dcc/BenchGen
 [Completely Unscientific Benchmarks]: https://github.com/frol/completely-unscientific-benchmarks
 [Count Words]: https://benhoyt.com/writings/count-words/
 [ffi-overhead]: https://github.com/dyu/ffi-overhead
