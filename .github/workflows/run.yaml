@@ -211,6 +211,9 @@ jobs:
       - name: Set up Nix
         uses: cachix/install-nix-action@v31
 
+      - name: Set up Woxi
+        run: cargo install woxi
+
       - name: Run hello world benchmark
         run: nix develop --command make run-hello-world
 
