@@ -1,16 +1,19 @@
 # ./apl - TODO: Figure out why this freezes in CI
 ./bash
+# ./c - TODO: Currently broken
+#             https://github.com/NixOS/nixpkgs/blob/nixos-25.05/pkgs/by-name/ti/tinycc/package.nix
+#             Maybe use: https://wunderlin.net/pages/shebang/
 # ./common-lisp-ciel
 # ./common-lisp-embeddable
 # ./common-lisp-steel-bank
 # ./csharp
-./d.d
+# ./d.d
 ./dart
 ./dash
 ./elixir
 ./elvish
 ./erlang
-./factor
+# ./factor
 ./fish
 # ./forth - TODO: Figure out why thid doesn't work in CI
 ./fsharp.fsx
@@ -18,7 +21,7 @@
 ./guile
 ./haskell
 # ./haxe - TODO: Fix script
-./j
+# ./j
 ./janet
 ./java
 ./javascript-bun
@@ -26,30 +29,33 @@
 ./jq
 ./julia
 ./ksh
-./lisp-emacs
+# ./lisp-emacs
 ./lua
 ./luajit
 ./luau
 ./make
+# ./microhs
 ./nim.nim
 ./nushell
 ./ocaml
-./osh
+# ./osh
 ./perl
 ./php
 ./python
-./r
-./racket
+# ./r
+# ./racket
 # ./ring - TODO: Enable in CI
 ./ruby
 ./rust-script
 # ./roc.roc - TODO: Fix roc on GitHub Actions
-./scala
-./smalltalk-gnu
+# ./scala
+# ./smalltalk-gnu
 ./sqlite
-./swift
+# ./swift
 ./tcl
 ./tcsh
 ./uiua
 ./v.vsh
+# ./wolfram-language-wolframscript - Can't be installed in CI
+./wolfram-language-woxi
 ./zsh

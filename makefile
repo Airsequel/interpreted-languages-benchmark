@@ -43,7 +43,6 @@ run-bucket-calc:
 		'nickel export bucket-calc/main.ncl' \
 		'nix eval --file bucket-calc/main.nix' \
 		'typst query --field=text --one bucket-calc/main.typ "<main>"' \
-		'wolframscript -file bucket-calc/main-wolframscript.wls' \
 		'woxi run bucket-calc/main-woxi.wls' \
 		'bash bucket-calc/main.bash' \
 		'zsh bucket-calc/main.zsh' \
@@ -230,7 +229,6 @@ run-hello-world: compile
 		'tcsh ./shebang-scripts/hello_world/tcsh' \
 		'uiua run compiled/hello_world/main.ua' \
 		'v run compiled/hello_world/main.v' \
-		'wolframscript -file ./shebang-scripts/hello_world/wolfram-language-wolframscript' \
 		'woxi run ./shebang-scripts/hello_world/wolfram-language-woxi' \
 		'zsh ./shebang-scripts/hello_world/zsh'
 
