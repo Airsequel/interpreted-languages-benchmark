@@ -155,9 +155,9 @@ compile:
 	v -prod \
 		-o output/hello_world/main-v \
 		compiled/hello_world/main.v
-	crystal build --release \
-		-o output/hello_world/main-crystal \
-		compiled/hello_world/main.cr
+	# crystal build --release \  # TODO: LLVM 22 broken in nixpkgs
+	# 	-o output/hello_world/main-crystal \
+	# 	compiled/hello_world/main.cr
 	cd compiled/hello_world && fpc -O2 \
 		-o../../output/hello_world/main-pascal \
 		main.pas
@@ -188,7 +188,6 @@ run-hello-world: compile
 		'./output/hello_world/main-nim' \
 		'./output/hello_world/main-swift' \
 		'./output/hello_world/main-v' \
-		'./output/hello_world/main-crystal' \
 		'./output/hello_world/main-pascal' \
 		'java -cp output/hello_world/main-kotlin.jar MainKt' \
 		'java -cp output/hello_world/main-java.jar Main' \

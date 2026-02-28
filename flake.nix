@@ -20,14 +20,7 @@
           config.permittedInsecurePackages = [
             "mbedtls-2.28.10" # Required by haxe
           ];
-          overlays = [
-            (final: prev: {
-              # LLVM 22.1.0-rc3 has a failing test on macOS (ProgramEnvTest/TestExecuteEmptyEnvironment)
-              llvmPackages_22 = prev.llvmPackages_22.overrideScope (lpFinal: lpPrev: {
-                llvm = lpPrev.llvm.overrideAttrs { doCheck = false; };
-              });
-            })
-          ];
+          overlays = [];
         };
       in {
         devShells.default = pkgs.mkShell {
@@ -35,7 +28,7 @@
             bash
             bun
             coreutils
-            crystal
+            # crystal  # TODO: LLVM 22 broken in nixpkgs (ProgramEnvTest/TestExecuteEmptyEnvironment)
             dart
             dash
             deno

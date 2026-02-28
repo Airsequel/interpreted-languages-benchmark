@@ -172,6 +172,9 @@ jobs:
       - name: Set up Uiua
         run: cargo install --git https://github.com/uiua-lang/uiua uiua
 
+      - name: Set up Woxi
+        run: cargo install woxi
+
       - name: Set up V
         uses: vlang/setup-v@v1.4
 
