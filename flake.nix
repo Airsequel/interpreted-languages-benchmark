@@ -20,6 +20,14 @@
           config.permittedInsecurePackages = [
             "mbedtls-2.28.10" # Required by haxe
           ];
+          overlays = [
+            (final: prev: {
+              # LLVM 22.1.0-rc3 has a failing test on macOS (ProgramEnvTest/TestExecuteEmptyEnvironment)
+              llvmPackages_22 = prev.llvmPackages_22.overrideScope (lpFinal: lpPrev: {
+                llvm = lpPrev.llvm.overrideAttrs { doCheck = false; };
+              });
+            })
+          ];
         };
       in {
         devShells.default = pkgs.mkShell {
