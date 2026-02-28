@@ -1,3 +1,5 @@
+module Main where
+
 main :: IO ()
 main = do
   let start = 1 :: Double

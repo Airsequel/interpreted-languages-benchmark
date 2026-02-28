@@ -3,12 +3,44 @@ help: makefile
 	@tail -n +4 makefile | grep ".PHONY"
 
 
+.PHONY: compile-bucket-calc
+compile-bucket-calc:
+	mkdir -p output/bucket_calc
+	rm -f compiled/bucket_calc/*.o compiled/bucket_calc/*.hi
+	CC=gcc ghc --make -O2 \
+		-pgmc gcc -pgma gcc \
+		-o output/bucket_calc/main-hs \
+		compiled/bucket_calc/Main.hs
+	rustc -O \
+		-o output/bucket_calc/main-rust \
+		compiled/bucket_calc/main.rs
+	ocamlopt -O2 \
+		-o output/bucket_calc/main-ocaml \
+		compiled/bucket_calc/main.ml
+	nim compile -d:release \
+		--out:output/bucket_calc/main-nim \
+		compiled/bucket_calc/main.nim
+	v -prod \
+		-o output/bucket_calc/main-v \
+		compiled/bucket_calc/main.v
+	mkdir -p output/bucket_calc/java-classes \
+		&& javac -d output/bucket_calc/java-classes compiled/bucket_calc/Main.java \
+		&& cd output/bucket_calc/java-classes \
+		&& jar cf ../main-java.jar Main.class
+
+
 .PHONY: run-bucket-calc
-run-bucket-calc:
+run-bucket-calc: compile-bucket-calc
 	@hyperfine \
 		--shell=none \
 		--warmup 10 \
 		--export-json bucket-calc/result.json \
+		'./output/bucket_calc/main-hs' \
+		'./output/bucket_calc/main-rust' \
+		'./output/bucket_calc/main-ocaml' \
+		'./output/bucket_calc/main-nim' \
+		'./output/bucket_calc/main-v' \
+		'java -cp output/bucket_calc/main-java.jar Main' \
 		'python3 bucket-calc/main.py' \
 		'ruby bucket-calc/main.rb' \
 		'perl bucket-calc/main.pl' \
@@ -22,16 +54,16 @@ run-bucket-calc:
 		'lua bucket-calc/main.lua' \
 		'luajit bucket-calc/main.lua' \
 		'luau bucket-calc/main.luau' \
-		'java --source 11 bucket-calc/main.java' \
+		'java --source 11 compiled/bucket_calc/Main.java' \
 		'groovy bucket-calc/main.groovy' \
 		'dotnet fsi bucket-calc/main.fsx' \
 		'dart run bucket-calc/main.dart' \
 		'julia bucket-calc/main.jl' \
-		'runhaskell bucket-calc/main.hs' \
-		'ocaml bucket-calc/main.ml' \
-		'nim r --hints:off bucket-calc/main.nim' \
-		'rust-script bucket-calc/main.rs' \
-		'v run bucket-calc/main.v' \
+		'runhaskell compiled/bucket_calc/Main.hs' \
+		'ocaml compiled/bucket_calc/main.ml' \
+		'nim r --hints:off compiled/bucket_calc/main.nim' \
+		'rust-script compiled/bucket_calc/main.rs' \
+		'v run compiled/bucket_calc/main.v' \
 		'elixir bucket-calc/main.exs' \
 		'escript bucket-calc/main.escript' \
 		'janet bucket-calc/main.janet' \
@@ -289,6 +321,8 @@ format:
 .PHONY: clean
 clean:
 	rm -rf shebang-scripts/node_modules
+	rm -rf output/bucket_calc
+	rm -f compiled/bucket_calc/*.o compiled/bucket_calc/*.hi compiled/bucket_calc/*.cmi compiled/bucket_calc/*.cmx
 
 	rm -rf compile-to-js/elm/elm-stuff
 	rm -rf compile-to-js/elm/index.html

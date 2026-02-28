@@ -13,53 +13,83 @@ const data = JSON.parse(
   ),
 )
 
-// Extract data from the JSON
-const results: { command: string; mean_time: number }[] = data.results.map(
-  (result) => {
-    let command = result.command
-      // Special cases with flags, subcommands, or disambiguation
-      .replace('sqlite3 :memory: -init bucket-calc/main.sql ""', "sqlite")
-      .replace(
-        'typst query --field=text --one bucket-calc/main.typ "<main>"',
-        "typst",
-      )
-      .replace("nix eval --file bucket-calc/main.nix", "nix")
-      .replace("java --source 11 bucket-calc/main.java", "java")
-      .replace("nim r --hints:off bucket-calc/main.nim", "nim")
-      .replace("nickel export bucket-calc/main.ncl", "nickel")
-      .replace(
-        "wolframscript -file bucket-calc/main-wolframscript.wls",
-        "wolframscript",
-      )
-      .replace("woxi run bucket-calc/main-woxi.wls", "woxi")
-      .replace("dotnet fsi bucket-calc/main.fsx", "fsharp")
-      .replace("guile -s bucket-calc/main.scm", "guile")
-      .replace("jq -n -f bucket-calc/main.jq", "jq")
-      .replace("deno run bucket-calc/main.ts", "deno-ts")
-      .replace("deno run bucket-calc/main.js", "deno-js")
-      .replace("bun run bucket-calc/main.ts", "bun-ts")
-      .replace("bun run bucket-calc/main.js", "bun-js")
-      .replace("dart run bucket-calc/main.dart", "dart")
-      .replace("v run bucket-calc/main.v", "v")
-      .replace("uiua run bucket-calc/main.ua", "uiua")
-      .replace("scala-cli run bucket-calc/main.scala", "scala")
-      // Generic: "interpreter bucket-calc/main.ext" → "interpreter"
-      .replace(/\s*bucket-calc\/\S+/g, "")
-      .trim()
+function parseResult(command: string): { name: string; type: string } {
+  // Compiled binaries
+  if (command.startsWith("./output/bucket_calc/main-")) {
     return {
-      command: command,
-      mean_time: result.mean,
+      name: command.replace("./output/bucket_calc/main-", ""),
+      type: "compiled",
     }
-  },
-)
+  }
+  if (command.startsWith("java -cp output/bucket_calc/")) {
+    return { name: "java", type: "compiled" }
+  }
 
-console.log({ results })
+  // Interpreted - special cases with flags, subcommands, or disambiguation
+  const specialCases: Record<string, string> = {
+    'sqlite3 :memory: -init bucket-calc/main.sql ""': "sqlite",
+    'typst query --field=text --one bucket-calc/main.typ "<main>"': "typst",
+    "nix eval --file bucket-calc/main.nix": "nix",
+    "java --source 11 compiled/bucket_calc/Main.java": "java-source",
+    "nim r --hints:off compiled/bucket_calc/main.nim": "nim-r",
+    "nickel export bucket-calc/main.ncl": "nickel",
+    "woxi run bucket-calc/main-woxi.wls": "woxi",
+    "dotnet fsi bucket-calc/main.fsx": "fsharp",
+    "guile -s bucket-calc/main.scm": "guile",
+    "jq -n -f bucket-calc/main.jq": "jq",
+    "deno run bucket-calc/main.ts": "deno-ts",
+    "deno run bucket-calc/main.js": "deno-js",
+    "bun run bucket-calc/main.ts": "bun-ts",
+    "bun run bucket-calc/main.js": "bun-js",
+    "dart run bucket-calc/main.dart": "dart",
+    "v run compiled/bucket_calc/main.v": "v-run",
+    "uiua run bucket-calc/main.ua": "uiua",
+    "scala-cli run bucket-calc/main.scala": "scala",
+    "runhaskell compiled/bucket_calc/Main.hs": "runhaskell",
+    "ocaml compiled/bucket_calc/main.ml": "ocaml-script",
+    "rust-script compiled/bucket_calc/main.rs": "rust-script",
+  }
+  if (specialCases[command]) {
+    return { name: specialCases[command], type: "interpreted" }
+  }
 
-// Convert results to a DataFrame-like structure
-const df = results.map((result, index) => ({
-  ...result,
-  relative_speed: 0, // Placeholder for now
-}))
+  // Interpreted - generic: "interpreter bucket-calc/main.ext"
+  const genericMatch = command.match(/\s*bucket-calc\/\S+/g)
+  if (genericMatch) {
+    return {
+      name: command.replace(/\s*bucket-calc\/\S+/g, "").trim(),
+      type: "interpreted",
+    }
+  }
+
+  // Interpreted - generic: "interpreter compiled/bucket_calc/main.ext"
+  const compiledMatch = command.match(/\s*compiled\/bucket_calc\/\S+/g)
+  if (compiledMatch) {
+    return {
+      name: command.replace(/\s*compiled\/bucket_calc\/\S+/g, "").trim(),
+      type: "interpreted",
+    }
+  }
+
+  // Fallback
+  return { name: command.split(" ")[0], type: "interpreted" }
+}
+
+// Extract data from the JSON
+const df: {
+  command: string
+  type: string
+  mean_time: number
+  relative_speed: number
+}[] = data.results.map((result) => {
+  const { name, type } = parseResult(result.command)
+  return {
+    command: name,
+    type,
+    mean_time: result.mean,
+    relative_speed: 0,
+  }
+})
 
 // Find the fastest entry (smallest mean_time)
 const fastestEntry = df.reduce((min, entry) => {
@@ -101,7 +131,20 @@ const spec = {
       type: "quantitative",
       title: `Relative Speed in Comparison to ${fastestCommand}`,
     },
-    tooltip: [{ field: "command" }, { field: "relative_speed" }],
+    color: {
+      field: "type",
+      type: "nominal",
+      title: "Type",
+      scale: {
+        domain: ["compiled", "interpreted"],
+        range: ["steelblue", "coral"],
+      },
+    },
+    tooltip: [
+      { field: "command" },
+      { field: "type" },
+      { field: "relative_speed" },
+    ],
   },
   data: {
     values: df,
