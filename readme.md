@@ -147,7 +147,7 @@ for the latest benchmark results.
 - [Count Words] - Counting words in Python, Go, C++, C, AWK, Forth, and Rust
 - [ffi-overhead] - Comparing the C FFI overhead of various programming languages
 - [gradbench] - Benchmarks for differentiable programming across languages and domains
-- [jinyus/related_post_gen] - Data Processing benchmark
+- [zupat/related_post_gen] - Data Processing benchmark
 - [Languages] - Comparing programming languages with micro benchmarks
 - [plb2] - A programming language benchmark
 - [Programming-Language-Benchmarks][PLB]
@@ -160,7 +160,7 @@ for the latest benchmark results.
 [Count Words]: https://benhoyt.com/writings/count-words/
 [ffi-overhead]: https://github.com/dyu/ffi-overhead
 [gradbench]: https://github.com/gradbench/gradbench
-[jinyus/related_post_gen]: https://github.com/jinyus/related_post_gen
+[zupat/related_post_gen]: https://github.com/zupat/related_post_gen
 [Languages]: https://github.com/bddicken/languages
 [PLB]: https://github.com/hanabi1224/Programming-Language-Benchmarks
 [plb2]: https://github.com/attractivechaos/plb2
