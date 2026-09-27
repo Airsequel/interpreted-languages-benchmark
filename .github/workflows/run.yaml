@@ -37,6 +37,7 @@ jobs:
       - name: Set up Dart
         run: |
           brew tap dart-lang/dart
+          brew trust --tap dart-lang/dart
           brew install dart
 
       - name: Set up Dotnet
@@ -153,6 +154,8 @@ jobs:
       - name: Set up Scala
         run: |
           brew install scala
+          brew tap Virtuslab/scala-cli
+          brew trust --tap Virtuslab/scala-cli
           brew install Virtuslab/scala-cli/scala-cli
 
       - name: Set up SWI-Prolog
