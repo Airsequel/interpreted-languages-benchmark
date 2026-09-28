@@ -143,6 +143,7 @@ for the latest benchmark results.
 ## Related
 
 - [BenchGen] - Automatic generation of benchmarks to stress-test systems.
+- [Comparing Scripting Language Speed] - Comparing the speed of a small programming language interpreter using several popular languages
 - [Completely Unscientific Benchmarks] - Naive performance comparison of several languages
 - [Count Words] - Counting words in Python, Go, C++, C, AWK, Forth, and Rust
 - [ffi-overhead] - Comparing the C FFI overhead of various programming languages
@@ -156,6 +157,7 @@ for the latest benchmark results.
 - [SpeedTests] - Comparing the execution speeds of various programming languages.
 
 [BenchGen]: https://github.com/lac-dcc/BenchGen
+[Comparing Scripting Language Speed]: https://www.emulationonline.com/posts/comparing-scripting-language-speed/
 [Completely Unscientific Benchmarks]: https://github.com/frol/completely-unscientific-benchmarks
 [Count Words]: https://benhoyt.com/writings/count-words/
 [ffi-overhead]: https://github.com/dyu/ffi-overhead
