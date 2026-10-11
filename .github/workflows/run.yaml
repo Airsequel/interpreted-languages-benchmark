@@ -177,7 +177,8 @@ jobs:
         run: cargo install woxi
 
       - name: Set up V
-        uses: vlang/setup-v@v1.4
+        # setup-v builds from V's master branch, which can be broken
+        run: brew install vlang
 
       - name: Install Hyperfine
         run: brew install hyperfine
